@@ -1,3 +1,3 @@
-import Parser from './Parser'
+import TaroParser from './TaroParser'
 
-export default Parser
+export default TaroParser

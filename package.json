@@ -1,8 +1,8 @@
 {
   "name": "taro-parse",
   "version": "1.0.0",
-  "private": true,
-  "description": "taro版本的towxml实现",
+  "private": false,
+  "description": "taro版本的富文本解析器",
   "main": "dist/index.js",
   "main:h5": "dist/h5/index.js",
   "types": "./@types/index.d.ts",
@@ -29,7 +29,6 @@
     "dev:qq": "npm run build:qq -- --watch",
     "dev:quickapp": "npm run build:quickapp -- --watch"
   },
-  "author": "",
   "license": "MIT",
   "dependencies": {
     "@tarojs/components": "2.0.5",
@@ -69,5 +68,26 @@
     "eslint-plugin-typescript": "^0.14.0",
     "typescript-eslint-parser": "^22.0.0",
     "typescript": "^3.0.1"
-  }
+  },
+  "keywords": [
+    "taro",
+    "taro-ui",
+    "wxparser",
+    "towxml",
+    "html2wxml",
+    "md2wxml"
+  ],
+  "files": [
+    "dist",
+    "@types"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/werfei/taro-parse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/werfei/taro-parse/issues"
+  },
+  "author": "werfei <https://github.com/werfei>",
+  "homepage": "https://github.com/werfei/taro-parse#readme"
 }
