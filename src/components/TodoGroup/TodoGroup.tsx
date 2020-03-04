@@ -16,7 +16,7 @@ export default class TodoGroup extends Component<BaseProps, {}> {
 
   buildCheckbox(val) {
     return val.child.filter(o => o.tag === 'checkbox').map(item => <Checkbox value={item.attr.value}
-      className={item.attr.class}
+      className={'~'+item.attr.class}
       checked={item.attr.checked}
       disabled={item.attr.disable}
     />)
@@ -27,14 +27,14 @@ export default class TodoGroup extends Component<BaseProps, {}> {
     const children = (data && data.child ? data.child : []).filter(o => o.tag).map(item => {
       const checkbox = this.buildCheckbox(item)
       const text = this.buildText(item)
-      return <Label className={item.attr.class}>
+      return <Label className={'~'+item.attr.class}>
         {checkbox}
         {text}
       </Label>
     })
     return (
       data &&
-      <CheckboxGroup className={data.attr.class}>
+      <CheckboxGroup className={'~'+data.attr.class}>
         {children}
       </CheckboxGroup>
     )

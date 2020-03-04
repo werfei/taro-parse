@@ -1,6 +1,17 @@
 import md from '../parse/markdown/index'
 import parse from '../parse/index'
 
+function initClass(val) {
+  if (val.attr && val.attr.class) {
+    val.attr.class = val.attr.class.split(' ').join(' ~')
+  }
+  if (val.child) {
+    for (let i = 0; i < val.child.length; i++) {
+      initClass(val.child[i])
+    }
+  }
+}
+
 export default function (str, type, option) {
   option = option || {};
   let result;
@@ -17,5 +28,7 @@ export default function (str, type, option) {
       throw new Error('Invalid type, only markdown and html are supported')
     }
   }
+  initClass(result)
+  console.log(result)
   return result
 }

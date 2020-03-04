@@ -2,7 +2,10 @@
   "name": "taro-parse",
   "version": "1.0.0",
   "private": true,
-  "description": "",
+  "description": "taro版本的towxml实现",
+  "main": "dist/index.js",
+  "main:h5": "dist/h5/index.js",
+  "types": "./@types/index.d.ts",
   "templateInfo": {
     "name": "default",
     "typescript": true,

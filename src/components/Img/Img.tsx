@@ -1,11 +1,10 @@
 import {Component} from '@tarojs/taro'
 import {Image} from '@tarojs/components'
-import {BaseProps} from "../BaseProps"
-import {State} from './interface'
+import {Props,State} from './interface'
 import {styleToObj} from "../../utils/dom";
 import './index.scss'
 
-export default class Img extends Component<BaseProps, State> {
+export default class Img extends Component<Props, State> {
 
   state = {
     size: {
@@ -44,9 +43,17 @@ export default class Img extends Component<BaseProps, State> {
       }
     });
   }
-  options={
+
+  options = {
     addGlobalClass: true
   }
+
+  imgClick = (src) => {
+    if(this.props.onImgClick){
+      this.props.onImgClick(src)
+    }
+  }
+
   render() {
     const {attr, size} = this.state
     const {data} = this.props
@@ -57,11 +64,14 @@ export default class Img extends Component<BaseProps, State> {
         style.width = size.w + 'em'
         style.height = size.h + 'em'
       }
-      style.fontSize='inherit'
+      style.fontSize = 'inherit'
     }
     return (
       data && <Image
-        className={attr.className}
+        className={'~'+attr.className}
+        onClick={() => {
+          this.imgClick(attr.src)
+        }}
         lazy-load='true'
         src={attr.src}
         style={style}

@@ -1,11 +1,10 @@
 import {Component} from '@tarojs/taro'
 import {Image} from '@tarojs/components'
-import {State} from './interface'
+import {Props, State} from './interface'
 import './index.scss'
-import {BaseProps} from "../BaseProps";
 import config from '../config'
 
-export default class Latex extends Component<BaseProps, State> {
+export default class Latex extends Component<Props, State> {
 
   state = {
     size: {
@@ -19,13 +18,14 @@ export default class Latex extends Component<BaseProps, State> {
   }
 
   componentWillMount(): void {
-    const {data} = this.props
+    const {data, api} = this.props
+    const apiPath = api || config.latex.api
 
     // 设置公式图片
     this.setState({
       attr: {
-        src: `${config.latex.api}=${data.attr.value}&theme=${config.theme}`,
-        className: `${data.attr.class} ${data.attr.class}--${data.attr.type}`
+        src: `${apiPath}=${data.attr.value}&theme=${config.theme}`,
+        className: `~${data.attr.class} ~${data.attr.class}--${data.attr.type}`
       }
     });
   }
@@ -43,15 +43,25 @@ export default class Latex extends Component<BaseProps, State> {
       }
     })
   }
-  options={
+  options = {
     addGlobalClass: true
   }
+
+  imgClick = (src) => {
+    if (this.props.onImgClick) {
+      this.props.onImgClick(src)
+    }
+  }
+
   render() {
     const {attr, size} = this.state
     return (
       <Image
-        className={attr.className}
+        className={'~'+attr.className}
         lazy-load='true'
+        onClick={() => {
+          this.imgClick(attr.src)
+        }}
         src={attr.src}
         style={{width: size.w + "em", height: size.h + "em"}}
         onLoad={this.load}

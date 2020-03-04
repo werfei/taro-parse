@@ -7,30 +7,36 @@ import Decode from '../Decode/decode'
 
 export default class Table extends Component<BaseProps, {}> {
 
-  options={
+  options = {
     addGlobalClass: true
   }
 
-  buildTr(items) {
+  buildTr(trList) {
+    return trList.filter(o => o.tag).map((trs, trIndex) => {
+      let child
+      if (trs.child) {
+        child = trs.child.filter(o => o.tag)
+      } else {
+        child = []
+      }
+      const children = child.map((item, index) => {
+        let style
 
-    return items.filter(o => o.tag).map((item, index) => {
-      const child = this.buildTd(item.child)
-      return (<View key={index} className={item.attr.class}>
-        {child}
+        if (item.attr && item.attr.style) {
+          style = styleToObj(item.attr.style)
+          if (item.attr && item.attr.width) {
+            style.width = item.attr.width
+          }
+        }
+        return (
+          <View key={index} className={'~' + item.attr.class} style={style}>
+            {item.child && <Decode nodes={item} />}
+          </View>
+        )
+      })
+      return (<View key={trIndex} className={'~' + trs.attr.class}>
+        {children}
       </View>)
-    })
-  }
-
-  buildTd(items) {
-
-    return items.filter(o => o.tag).map((item, index) => {
-      const style = styleToObj(item.attr.style)
-      style.width = item.attr.width || 'auto'
-      return (
-        <View key={index} className={item.attr.class} style={style}>
-          {item.child && <Decode nodes={item.child} />}
-        </View>
-      )
     })
   }
 
@@ -41,12 +47,12 @@ export default class Table extends Component<BaseProps, {}> {
     if (data) {
       style = styleToObj(data.attr && data.attr.style ? data.attr.style : '')
       if (data.attr && data.attr.width) {
-        style.width = data.attr && data.attr.width
+        style.width = data.attr.width
       }
 
       child = (data.child || []).filter(o => o.tag).map((item, index) => {
         const c = this.buildTr(item.child)
-        return (<View key={index} className={item.attr.class}>
+        return (<View key={index} className={'~' + item.attr.class}>
           {c}
         </View>)
       })
@@ -54,8 +60,8 @@ export default class Table extends Component<BaseProps, {}> {
     }
     return (
       data && data.tag === 'table' && (
-        <View className='h2w__tableParent'>
-          <View className={data.attr.class} style={style}>
+        <View className='~h2w__tableParent'>
+          <View className={'~' + data.attr.class} style={style}>
             {child}
           </View>
         </View>

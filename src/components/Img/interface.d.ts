@@ -1,7 +1,7 @@
-import {Data} from "../data"
+import {BaseProps} from "../BaseProps"
 
-export interface Props {
-  data: Data
+export interface Props extends BaseProps {
+  onImgClick?: Function
 }
 
 export interface State {

@@ -1,15 +1,10 @@
 import {Component} from '@tarojs/taro'
 import {Image, View} from '@tarojs/components'
-import {BaseProps} from "../BaseProps"
-import {State} from './interface'
+import {Props, State} from './interface'
 import config from '../config'
 import './index.scss'
 
-export default class Yuml extends Component<BaseProps, State> {
-
-  options={
-    addGlobalClass: true
-  }
+export default class Yuml extends Component<Props, State> {
 
   state = {
     size: {
@@ -23,13 +18,13 @@ export default class Yuml extends Component<BaseProps, State> {
   }
 
   componentWillMount(): void {
-    const {data} = this.props
-
+    const {data, api} = this.props
+    const apiPath = api || config.yuml.api
     // 设置公式图片
     this.setState({
       attr: {
-        src: `${config.latex.api}=${data.attr.value}&theme=${config.theme}`,
-        className: `${data.attr.class} ${data.attr.class}--${data.attr.type}`
+        src: `${apiPath}=${data.attr.value}&theme=${config.theme}`,
+        className: `~${data.attr.class} ~${data.attr.class}--${data.attr.type}`
       }
     });
   }
@@ -48,15 +43,28 @@ export default class Yuml extends Component<BaseProps, State> {
     })
   }
 
+  imgClick = (src) => {
+    if (this.props.onImgClick) {
+      this.props.onImgClick(src)
+    }
+  }
+
+  options = {
+    addGlobalClass: true
+  }
+
   render() {
     const {attr, size} = this.state
     return (
-      <View className='h2w__yumlBox'>
-        <View style={{width: size.w + "em"}} className='h2w__yumlView'>
+      <View className='~h2w__yumlBox'>
+        <View style={{width: size.w + "em"}} className='~h2w__yumlView'>
           <Image
-            className={attr.className}
+            className={'~'+attr.className}
             lazy-load='true'
             src={attr.src}
+            onClick={() => {
+              this.imgClick(attr.src)
+            }}
             style={{width: size.w + "em", height: size.h + "em"}}
             onLoad={this.load}
           />

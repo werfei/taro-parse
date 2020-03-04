@@ -1,6 +1,6 @@
-import {Data} from "../data"
+import {ComponentClass} from 'react'
 
-export interface Props {
+export interface TaroParserProps {
   content: string,
   type: 'markdown' | 'html',
   onImgClick?: Function
@@ -10,6 +10,6 @@ export interface Props {
   theme?: 'dark' | 'light'
 }
 
-export interface State {
-  nodes: Data
-}
+declare const TaroParser: ComponentClass<TaroParserProps>
+
+export default TaroParser

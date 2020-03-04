@@ -7,6 +7,17 @@ import './index.scss'
 
 const audio = new Audio()
 export default class AudioPlayer extends Component<BaseProps, State> {
+  state = {
+    tips: {
+      text: 'Loading',
+      state: 'h2w__audio--loading'
+    },
+    time: {
+      currentTime: 0,
+      duration: 1,
+      schedule: 0
+    }
+  }
 
   componentWillMount(): void {
     const {data} = this.props
@@ -51,26 +62,27 @@ export default class AudioPlayer extends Component<BaseProps, State> {
     }
   }
 
-  options={
+  options = {
     addGlobalClass: true
   }
 
   render() {
     const {data} = this.props
     const {tips, time} = this.state
+    const className = '~h2w__audio ~' + (tips && tips.state ? tips.state : 'h2w__audio--loading')
     return (
-      <View className="h2w__audio {{tips.state || 'h2w__audio--loading'}}" onClick={this.playAndPause}>
-        <View className='h2w__audioIcon' />
-        <View className='h2w__audioCover'>
-          <Image className='h2w__audioLoading' src='loading.svg' />
-          <Image className='h2w__audioCoverImg' src='{{data.attr.poster}}' />
+      <View className={className} onClick={this.playAndPause}>
+        <View className='~h2w__audioIcon' />
+        <View className='~h2w__audioCover'>
+          <Image className='~h2w__audioLoading' src='loading.svg' />
+          <Image className='~h2w__audioCoverImg' src={data.attr.poster} />
         </View>
-        <View className='h2w__audioInfo'>
-          <View className='h2w__audioTips'>{tips.text || 'Error'}</View>
-          <View className='h2w__audioSchedule' style='width:{{time.schedule}};' />
-          <View className='h2w__audioTitle'>{data.attr.name}</View>
-          <View className='h2w__audioAuthor'>{data.attr.author}</View>
-          <View className='h2w__audioTime'>{time.currentTime || '00:00:00'} / {time.duration || '00:00:00'}</View>
+        <View className='~h2w__audioInfo'>
+          <View className='~h2w__audioTips'>{tips.text || 'Error'}</View>
+          <View className='~h2w__audioSchedule' style={{width: time.schedule}} />
+          <View className='~h2w__audioTitle'>{data.attr.name}</View>
+          <View className='~h2w__audioAuthor'>{data.attr.author}</View>
+          <View className='~h2w__audioTime'>{time.currentTime || '00:00:00'} / {time.duration || '00:00:00'}</View>
         </View>
       </View>
     )

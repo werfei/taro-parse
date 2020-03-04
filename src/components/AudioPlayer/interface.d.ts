@@ -5,6 +5,7 @@ export interface State {
   },
   time: {
     currentTime: number,
-    duration: number
+    duration: number,
+    schedule: number
   }
 }

@@ -9,7 +9,7 @@ export interface Data {
     name: string,
     author: string,
     src: string,
-    poster?: string,
+    poster: string,
     mode?: 'scaleToFill' | 'aspectFit' | 'aspectFill' | 'widthFix' | 'top' |
       'bottom' | 'center' | 'left' | 'right' | 'top left' | 'top right' |
       'bottom left' | 'bottom right',

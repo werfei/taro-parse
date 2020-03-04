@@ -8,27 +8,41 @@ import './index.scss'
 
 export default class Parser extends Component<Props, State> {
 
+  imgClick = (src) => {
+    if (this.props.onImgClick) {
+      this.props.onImgClick(src)
+    }
+  }
+
+  linkClick = (href) => {
+    if (this.props.onLinkClick) {
+      this.props.onLinkClick(href)
+    }
+  }
+
   componentWillMount() {
     const {content, type} = this.props
     const nodes = convert(content || '', type) as unknown as Data
-    console.log("mount:", nodes)
     this.setState({
       nodes: nodes
     })
   }
 
-  options={
+  options = {
     addGlobalClass: true
   }
 
   render() {
     const {nodes} = this.state
-    console.log("nodes:", nodes)
-    const className = 'h2w hw2-' + (nodes && nodes.theme ? nodes.theme : 'light')
+    const {latexApi, yumlApi,theme} = this.props
+    const className = '~h2w ~h2w-' + (theme ? theme : 'light')
     return (
       <View className={className}>
-        <View className='h2w__main'>
-          {nodes && <Decode nodes={nodes} />}
+        <View className='~h2w__main'>
+          {nodes &&
+          <Decode latexApi={latexApi} yumlApi={yumlApi} onImgClick={this.imgClick} onLinkClick={this.linkClick}
+            nodes={nodes}
+          />}
         </View>
       </View>
     )
