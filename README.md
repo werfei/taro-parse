@@ -79,6 +79,7 @@ export default class Index extends Component {
 }
 
 ```
-流程图和数学公式云解析参考[@markdown-server](https://github.com/sbfkcel/markdown-server) 组件内置一个默认地址，由于是自建服务器，存在不稳定性，建议自行搭建解析服务
+#### 流程图和数学公式云解析参考[@markdown-server](https://github.com/sbfkcel/markdown-server) 
+##### ps:组件内置一个默认地址，由于是自建服务器，存在不稳定性，建议自行搭建解析服务
 ## 感谢
 该项目是基于 [@towxml](https://github.com/sbfkcel/towxml) 做的taro版本
