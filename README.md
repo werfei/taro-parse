@@ -2,7 +2,6 @@
 ## <p align="center">支持Html及markdown转wxml可视化</p>
 ##### <p align="center"><code>版本号:1.0.0</code></p>
 ## 特色
-## 特色
 - 支持LaTex数学公式
 - 支持yuml流程图
 - 支持代码语法高亮、代码块行号显示
@@ -13,7 +12,10 @@
 - 支持Markdown TodoList
 ## 使用方式
 #### 1、安装 ` taro-parse `
-` npm install taro-parse ` 或者 ` yarn add taro-parse`
+##### npm 安装
+` npm install taro-parse `
+##### yarn 安装
+` yarn add taro-parse`
 #### 2、引入组件
 ``` 
 import '~taro-parse/dist/style/main'
