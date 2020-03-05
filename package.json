@@ -27,8 +27,7 @@
     "dev:qq": "npm run build:qq -- --watch",
     "dev:quickapp": "npm run build:quickapp -- --watch",
     "build:component": "cross-env TARO_BUILD_TYPE=ui taro build --ui",
-    "clean": "rimraf .temp dist coverage",
-    "prepublishOnly": "npm run clean && npm run build:component"
+    "clean": "rimraf .temp dist coverage"
   },
   "license": "MIT",
   "devDependencies": {
