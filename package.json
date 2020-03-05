@@ -1,6 +1,6 @@
 {
   "name": "taro-parse",
-  "version": "1.0.4",
+  "version": "1.0.0",
   "private": false,
   "description": "taro版本的富文本解析器",
   "main": "dist/index.js",
@@ -17,7 +17,6 @@
     "build:alipay": "taro build --type alipay",
     "build:tt": "taro build --type tt",
     "build:h5": "taro build --type h5",
-    "build:rn": "taro build --type rn",
     "build:qq": "taro build --type qq",
     "build:quickapp": "taro build --type quickapp",
     "dev:weapp": "npm run build:weapp -- --watch",
@@ -25,10 +24,11 @@
     "dev:alipay": "npm run build:alipay -- --watch",
     "dev:tt": "npm run build:tt -- --watch",
     "dev:h5": "npm run build:h5 -- --watch",
-    "dev:rn": "npm run build:rn -- --watch",
     "dev:qq": "npm run build:qq -- --watch",
     "dev:quickapp": "npm run build:quickapp -- --watch",
-    "build:component": "cross-env TARO_BUILD_TYPE=ui taro build --ui"
+    "build:component": "cross-env TARO_BUILD_TYPE=ui taro build --ui",
+    "clean": "rimraf .temp dist coverage",
+    "prepublishOnly": "npm run clean && npm run build:component"
   },
   "license": "MIT",
   "devDependencies": {
@@ -40,7 +40,6 @@
     "@tarojs/taro-h5": "2.0.5",
     "@tarojs/taro-qq": "2.0.5",
     "@tarojs/taro-quickapp": "2.0.5",
-    "@tarojs/taro-rn": "2.0.5",
     "@tarojs/taro-swan": "2.0.5",
     "@tarojs/taro-tt": "2.0.5",
     "@tarojs/taro-weapp": "2.0.5",
