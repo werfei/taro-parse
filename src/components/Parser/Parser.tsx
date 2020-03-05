@@ -31,6 +31,14 @@ export default class Parser extends Component<Props, State> {
     })
   }
 
+  componentWillReceiveProps(nextProps) {
+    const {content, type} = nextProps
+    const nodes = convert(content || '', type) as unknown as Data
+    this.setState({
+      nodes: nodes
+    })
+  }
+
 
   render() {
     const {nodes} = this.state
