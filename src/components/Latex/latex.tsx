@@ -1,8 +1,7 @@
 import {Component} from '@tarojs/taro'
 import {Image} from '@tarojs/components'
-import {Props, State} from './interface'
-import './index.scss'
-import config from '../config'
+import {Props, State} from 'types/Latex'
+import config from '../../utils/config'
 
 export default class Latex extends Component<Props, State> {
 

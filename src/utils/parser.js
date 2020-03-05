@@ -1,5 +1,5 @@
-import md from '../parse/markdown/index'
-import parse from '../parse/index'
+import md from './parse/markdown'
+import parse from './parse'
 
 function initClass(val) {
   if (val.attr && val.attr.class) {

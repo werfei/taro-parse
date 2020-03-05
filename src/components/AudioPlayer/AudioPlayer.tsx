@@ -1,9 +1,20 @@
 import {Component} from '@tarojs/taro'
 import {Image, View} from '@tarojs/components'
-import {State} from './interface'
-import {BaseProps} from '../BaseProps'
-import Audio from "./Audio";
-import './index.scss'
+import {BaseProps} from 'types/BaseProps'
+import Audio from "../../utils/Audio"
+import Loading from './loading.svg'
+
+interface State {
+  tips: {
+    text: string,
+    state: string
+  },
+  time: {
+    currentTime: number,
+    duration: number,
+    schedule: number
+  }
+}
 
 const audio = new Audio()
 export default class AudioPlayer extends Component<BaseProps, State> {
@@ -74,7 +85,7 @@ export default class AudioPlayer extends Component<BaseProps, State> {
       <View className={className} onClick={this.playAndPause}>
         <View className='~h2w__audioIcon' />
         <View className='~h2w__audioCover'>
-          <Image className='~h2w__audioLoading' src='loading.svg' />
+          <Image className='~h2w__audioLoading' src={Loading} />
           <Image className='~h2w__audioCoverImg' src={data.attr.poster} />
         </View>
         <View className='~h2w__audioInfo'>

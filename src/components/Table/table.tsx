@@ -1,8 +1,7 @@
 import {Component} from '@tarojs/taro'
 import {View} from '@tarojs/components'
-import {BaseProps} from '../BaseProps'
+import {BaseProps} from 'types/BaseProps'
 import {styleToObj} from "../../utils/dom"
-import './index.scss'
 import Decode from '../Decode/decode'
 
 export default class Table extends Component<BaseProps, {}> {

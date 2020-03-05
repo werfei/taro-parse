@@ -1,6 +1,6 @@
 import {Component} from '@tarojs/taro'
 import {View} from '@tarojs/components'
-import {BaseProps} from '../BaseProps'
+import {BaseProps} from 'types/BaseProps'
 import {styleToObj} from "../../utils/dom"
 import Decode from '../Decode/decode'
 

@@ -1,8 +1,7 @@
 import {Component} from '@tarojs/taro'
 import {Image, View} from '@tarojs/components'
-import {Props, State} from './interface'
-import config from '../config'
-import './index.scss'
+import {Props, State} from 'types/Yuml'
+import config from '../../utils/config'
 
 export default class Yuml extends Component<Props, State> {
 
@@ -59,7 +58,7 @@ export default class Yuml extends Component<Props, State> {
       <View className='~h2w__yumlBox'>
         <View style={{width: size.w + "em"}} className='~h2w__yumlView'>
           <Image
-            className={'~'+attr.className}
+            className={'~' + attr.className}
             lazy-load='true'
             src={attr.src}
             onClick={() => {

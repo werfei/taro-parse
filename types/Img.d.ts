@@ -1,8 +1,7 @@
-import {BaseProps} from "../BaseProps"
+import {BaseProps} from "./BaseProps"
 
 export interface Props extends BaseProps {
-  onImgClick?: Function,
-  api?: string
+  onImgClick?: Function
 }
 
 export interface State {

@@ -1,14 +1,13 @@
 import {Component} from '@tarojs/taro'
 import {View} from '@tarojs/components'
-import {BaseProps} from '../BaseProps'
+import {BaseProps} from 'types/BaseProps'
 import {styleToObj} from "../../utils/dom"
 import Td from './Td'
 
 export default class Tr extends Component<BaseProps, {}> {
 
   options = {
-    addGlobalClass: true,
-    styleIsolation: 'shared'
+    addGlobalClass: true
   }
 
   render() {

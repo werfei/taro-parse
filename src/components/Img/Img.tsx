@@ -1,8 +1,7 @@
 import {Component} from '@tarojs/taro'
 import {Image} from '@tarojs/components'
-import {Props,State} from './interface'
+import {Props,State} from 'types/Img'
 import {styleToObj} from "../../utils/dom";
-import './index.scss'
 
 export default class Img extends Component<Props, State> {
 

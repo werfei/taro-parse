@@ -1,4 +1,4 @@
-const parse2 = require('./parse2/index'),
+const parse2 = require('./parse2'),
     // parse5 = require('./parse5/index').parse,
     config = require('../config'),
 
@@ -9,7 +9,7 @@ const parse2 = require('./parse2/index'),
                 todogroup:'checkbox-group',
                 audio:'audio-player'
             };
-        
+
         // // 该系列的标签都转换为text
         // ['span','b','strong','i','em','code','sub','sup','g-emoji','mark','ins'].forEach(item => {
         //     result[item] = 'text';

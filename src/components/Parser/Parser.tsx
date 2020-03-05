@@ -1,12 +1,15 @@
 import Taro, {Component} from '@tarojs/taro'
 import {View} from '@tarojs/components'
+import {Props, State} from "types/Parser";
+import {Data} from "types/Data";
 import Decode from "../Decode/decode";
-import {Props, State} from "./interface";
-import convert from './index'
-import {Data} from "../data"
-import './index.scss'
+import convert from '../../utils/parser'
 
 export default class Parser extends Component<Props, State> {
+
+  static options = {
+    addGlobalClass: true
+  }
 
   imgClick = (src) => {
     if (this.props.onImgClick) {
@@ -28,13 +31,10 @@ export default class Parser extends Component<Props, State> {
     })
   }
 
-  options = {
-    addGlobalClass: true
-  }
 
   render() {
     const {nodes} = this.state
-    const {latexApi, yumlApi,theme} = this.props
+    const {latexApi, yumlApi, theme} = this.props
     const className = '~h2w ~h2w-' + (theme ? theme : 'light')
     return (
       <View className={className}>

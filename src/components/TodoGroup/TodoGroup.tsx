@@ -1,8 +1,7 @@
 import {Checkbox, CheckboxGroup, Label} from "@tarojs/components"
 import {Component} from '@tarojs/taro'
-import {BaseProps} from "../BaseProps"
+import {BaseProps} from "types/BaseProps"
 import Decode from "../Decode/decode";
-import './TodoGroup.scss'
 
 export default class TodoGroup extends Component<BaseProps, {}> {
 

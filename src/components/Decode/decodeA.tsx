@@ -1,6 +1,6 @@
 import Taro, {Component} from '@tarojs/taro'
 import {Block, Button, Image, Navigator, Swiper, SwiperItem, Video, View} from '@tarojs/components'
-import {Props} from './interface'
+import {Props} from 'types/Decode'
 import {styleToObj} from "../../utils/dom"
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
 import Latex from "../Latex/latex";
@@ -9,7 +9,6 @@ import Table from "../Table/table";
 import Img from "../Img/Img";
 import TodoGroup from "../TodoGroup/TodoGroup";
 import DecodeB from "./decode"
-import './indexA.scss'
 
 export default class DecodeA extends Component<Props, {}> {
 
@@ -43,7 +42,7 @@ export default class DecodeA extends Component<Props, {}> {
         if (tag === 'undefined') {
           childView = <Block key={index}>{item.text}</Block>
         } else if (tag === 'view') {
-          childView = <View key={index} className={'~'+item.attr.class} style={style}>
+          childView = <View key={index} className={'~' + item.attr.class} style={style}>
             {item.child &&
             <DecodeB latexApi={latexApi} yumlApi={yumlApi} onImgClick={this.imgClick} onLinkClick={this.linkClick}
               nodes={item}
@@ -55,7 +54,7 @@ export default class DecodeA extends Component<Props, {}> {
             nodes={item}
           />}</Video>)
         } else if (tag === 'text') {
-          childView = <View key={index} className={'~'+item.attr.class} style={style}>
+          childView = <View key={index} className={'~' + item.attr.class} style={style}>
             {item.child ?
               <DecodeB latexApi={latexApi} yumlApi={yumlApi} onImgClick={this.imgClick} onLinkClick={this.linkClick}
                 nodes={item}
@@ -63,7 +62,7 @@ export default class DecodeA extends Component<Props, {}> {
           </View>
         } else if (tag === 'image') {
           childView = <Image key={index}
-            className={'~'+item.attr.class}
+            className={'~' + item.attr.class}
             style={style}
             src={item.attr.src}
             onClick={() => {
@@ -79,7 +78,7 @@ export default class DecodeA extends Component<Props, {}> {
           </Image>
         } else if (tag === 'navigator') {
           childView = <Navigator key={index}
-            className={'~'+item.attr.class}
+            className={'~' + item.attr.class}
             style={style}
             url={item.attr.href}
             onClick={() => {
@@ -91,7 +90,7 @@ export default class DecodeA extends Component<Props, {}> {
           />}</Navigator>
         } else if (tag === 'swiper') {
           childView = <Swiper key={index}
-            className={'~'+item.attr.class}
+            className={'~' + item.attr.class}
             style={style}
           >{item.child &&
           <DecodeB latexApi={latexApi} yumlApi={yumlApi} onImgClick={this.imgClick} onLinkClick={this.linkClick}
@@ -99,7 +98,7 @@ export default class DecodeA extends Component<Props, {}> {
           />}</Swiper>
         } else if (tag === 'swiper-item') {
           childView = <SwiperItem key={index}
-            className={'~'+item.attr.class}
+            className={'~' + item.attr.class}
             style={style}
           >{item.child &&
           <DecodeB latexApi={latexApi} yumlApi={yumlApi} onImgClick={this.imgClick} onLinkClick={this.linkClick}
@@ -112,7 +111,7 @@ export default class DecodeA extends Component<Props, {}> {
           />}</Block>
         } else if (tag === 'button') {
           childView =
-            <Button key={index} className={'~'+item.attr.class} style={style}>{item.child &&
+            <Button key={index} className={'~' + item.attr.class} style={style}>{item.child &&
             <DecodeB latexApi={latexApi} yumlApi={yumlApi} onImgClick={this.imgClick} onLinkClick={this.linkClick}
               nodes={item}
             />}</Button>
