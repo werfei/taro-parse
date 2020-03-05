@@ -2,7 +2,6 @@
 ## <p align="center">支持Html及markdown转wxml可视化</p>
 ##### <p align="center"><code>版本号:1.0.0</code></p>
 ## 特色
-## 特色
 - 支持LaTex数学公式
 - 支持yuml流程图
 - 支持代码语法高亮、代码块行号显示
@@ -12,6 +11,17 @@
 - 支持多主题切换
 - 支持Markdown TodoList
 ## 使用方式
+#### 1、安装 ` taro-parse `
+##### npm 安装
+` npm install taro-parse `
+##### yarn 安装
+` yarn add taro-parse`
+#### 2、引入组件
+``` 
+import '~taro-parse/dist/style/main'
+import TaroParser from 'taro-parse'
+```
+#### 3、组件参数
 | 参数名 | 类型   |描述 |
 | :---:  | :----: | :----: |
 | type| String | markdown \| html|
@@ -22,8 +32,41 @@
 | yumlApi| String| 否 | yuml流程图云解析地址 |
 | latexApi| String| 否 | latex数学公式云解析地址 |
 ### 示例
-```react
- <Parser
+```
+import Taro, {Component, Config} from '@tarojs/taro'
+import {View} from '@tarojs/components'
+import './index.scss'
+import '~taro-parse/dist/style/main'
+import TaroParser from 'taro-parse'
+
+export default class Index extends Component {
+
+  config: Config = {
+    navigationBarTitleText: '首页'
+  }
+
+  options = {
+    addGlobalClass: true
+  }
+
+  imgClick = (src) => {
+    Taro.previewImage({urls: [src]}).then(() => {
+    })
+  }
+
+  linkClick = (href) => {
+    Taro.setClipboardData({data: href}).then(() => {
+      Taro.showToast({title: '链接已复制'}).then(() => {
+      })
+    })
+
+  }
+
+  render() {
+    const content = '### HelloWorld'
+    return (
+      <View className='index'>
+        <TaroParser
           type='markdown'
           theme='light'
           onImgClick={this.imgClick}
@@ -32,7 +75,13 @@
           latexApi='https://md.werfei.com/?tex'
           content={content}
         />
+      </View>
+    )
+  }
+}
+
 ```
-流程图和数学公式云解析参考[@markdown-server](https://github.com/sbfkcel/markdown-server) 组件内置一个默认地址，由于是自建服务器，存在不稳定性，建议自行搭建解析服务
+#### 流程图和数学公式云解析参考[@markdown-server](https://github.com/sbfkcel/markdown-server) 
+##### ps:组件内置一个默认地址，由于是自建服务器，存在不稳定性，建议自行搭建解析服务
 ## 感谢
 该项目是基于 [@towxml](https://github.com/sbfkcel/towxml) 做的taro版本
