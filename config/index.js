@@ -72,6 +72,7 @@ const config = {
 }
 
 if (process.env.TARO_BUILD_TYPE === 'ui') {
+  console.log(1)
   Object.assign(config.h5, {
     enableSourceMap: false,
     enableExtract: false,
