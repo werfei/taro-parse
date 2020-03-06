@@ -1,6 +1,6 @@
 {
   "name": "taro-parse",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": false,
   "description": "taro版本的富文本解析器",
   "main": "dist/index.js",
