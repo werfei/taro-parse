@@ -44,6 +44,7 @@ export default class Yuml extends Component<Props, State> {
 
   imgClick = (src) => {
     if (this.props.onImgClick) {
+      console.log(src)
       // this.props.onImgClick(src)
     }
   }
