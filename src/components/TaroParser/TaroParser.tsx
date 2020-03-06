@@ -24,26 +24,9 @@ export default class TaroParser extends Component<Props, State> {
     }
   }
 
-  componentWillMount() {
-    const {content, type} = this.props
-    const nodes = convert(content || '', type) as unknown as Data
-    this.setState({
-      nodes: nodes
-    })
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const {content, type} = nextProps
-    const nodes = convert(content || '', type) as unknown as Data
-    this.setState({
-      nodes: nodes
-    })
-  }
-
-
   render() {
-    const {nodes} = this.state
-    const {latexApi, yumlApi, theme} = this.props
+    const {content, type, latexApi, yumlApi, theme} = this.props
+    const nodes = convert(content || '', type || 'markdown') as unknown as Data
     const className = `${config.classPrefix}h2w ${config.classPrefix}h2w-` + (theme ? theme : 'light')
     return (
       <View className={className}>
