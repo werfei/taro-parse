@@ -49,7 +49,7 @@ export default class Latex extends Component<Props, State> {
 
   imgClick = (src) => {
     if (this.props.onImgClick) {
-      this.props.onImgClick(src)
+      // this.props.onImgClick(src)
     }
   }
 
