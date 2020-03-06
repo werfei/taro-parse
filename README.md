@@ -22,6 +22,7 @@ import '~taro-parse/dist/style/main'
 import TaroParser from 'taro-parse'
 ```
 #### 3、组件参数
+
 | 参数名 | 类型   |描述 |
 | :---:  | :----: | :----: |
 | type| String | markdown \| html|
@@ -31,7 +32,9 @@ import TaroParser from 'taro-parse'
 | onLinkClick| Function| 链接点击回调 |
 | yumlApi| String| 否 | yuml流程图云解析地址 |
 | latexApi| String| 否 | latex数学公式云解析地址 |
+
 ### 示例
+
 ```
 import Taro, {Component, Config} from '@tarojs/taro'
 import {View} from '@tarojs/components'
@@ -81,7 +84,8 @@ export default class Index extends Component {
 }
 
 ```
-#### 流程图和数学公式云解析参考[@markdown-server](https://github.com/sbfkcel/markdown-server) 
-##### ps:组件内置一个默认地址，由于是自建服务器，存在不稳定性，建议自行搭建解析服务
+
+### 流程图和数学公式云解析参考[@markdown-server](https://github.com/sbfkcel/markdown-server) 
+### ps:组件内置一个默认地址，由于是自建服务器，存在不稳定性，建议自行搭建解析服务
 ## 感谢
 该项目是基于 [@towxml](https://github.com/sbfkcel/towxml) 做的taro版本
