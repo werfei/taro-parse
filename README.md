@@ -1,5 +1,5 @@
 # <p align="center">TaroParse taro版本富文本解析组件</p>
-## <p align="center">支持Html及markdown转wxml可视化</p>
+## <p align="center">支持Html及markdown可视化</p>
 ##### <p align="center"><code>版本号:1.1.0</code></p>
 ## 特色
 - 支持LaTex数学公式
