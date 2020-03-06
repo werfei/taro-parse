@@ -2,6 +2,7 @@ import {Component} from '@tarojs/taro'
 import {Image} from '@tarojs/components'
 import {Props,State} from 'types/Img'
 import {styleToObj} from "../../utils/dom";
+import config from '../../utils/config'
 
 export default class Img extends Component<Props, State> {
 
@@ -67,7 +68,7 @@ export default class Img extends Component<Props, State> {
     }
     return (
       data && <Image
-        className={'~'+attr.className}
+        className={config.classPrefix+attr.className}
         onClick={() => {
           this.imgClick(attr.src)
         }}

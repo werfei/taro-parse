@@ -3,6 +3,7 @@ import {View} from '@tarojs/components'
 import {BaseProps} from 'types/BaseProps'
 import {styleToObj} from "../../utils/dom"
 import Decode from '../Decode/decode'
+import config from '../../utils/config'
 
 export default class Table extends Component<BaseProps, {}> {
 
@@ -28,12 +29,12 @@ export default class Table extends Component<BaseProps, {}> {
           }
         }
         return (
-          <View key={index} className={'~' + item.attr.class} style={style}>
+          <View key={index} className={config.classPrefix + item.attr.class} style={style}>
             {item.child && <Decode nodes={item} />}
           </View>
         )
       })
-      return (<View key={trIndex} className={'~' + trs.attr.class}>
+      return (<View key={trIndex} className={config.classPrefix + trs.attr.class}>
         {children}
       </View>)
     })
@@ -51,7 +52,7 @@ export default class Table extends Component<BaseProps, {}> {
 
       child = (data.child || []).filter(o => o.tag).map((item, index) => {
         const c = this.buildTr(item.child)
-        return (<View key={index} className={'~' + item.attr.class}>
+        return (<View key={index} className={config.classPrefix + item.attr.class}>
           {c}
         </View>)
       })
@@ -59,8 +60,8 @@ export default class Table extends Component<BaseProps, {}> {
     }
     return (
       data && data.tag === 'table' && (
-        <View className='~h2w__tableParent'>
-          <View className={'~' + data.attr.class} style={style}>
+        <View className={config.classPrefix + 'h2w__tableParent'}>
+          <View className={config.classPrefix + data.attr.class} style={style}>
             {child}
           </View>
         </View>

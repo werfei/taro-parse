@@ -3,6 +3,7 @@ import {Image} from '@tarojs/components'
 import {Props, State} from 'types/Latex'
 import config from '../../utils/config'
 
+
 export default class Latex extends Component<Props, State> {
 
   state = {
@@ -24,7 +25,7 @@ export default class Latex extends Component<Props, State> {
     this.setState({
       attr: {
         src: `${apiPath}=${data.attr.value}&theme=${config.theme}`,
-        className: `~${data.attr.class} ~${data.attr.class}--${data.attr.type}`
+        className: `${config.classPrefix}${data.attr.class} ${config.classPrefix}${data.attr.class}--${data.attr.type}`
       }
     });
   }
@@ -56,7 +57,7 @@ export default class Latex extends Component<Props, State> {
     const {attr, size} = this.state
     return (
       <Image
-        className={'~'+attr.className}
+        className={config.classPrefix + attr.className}
         lazy-load='true'
         onClick={() => {
           this.imgClick(attr.src)

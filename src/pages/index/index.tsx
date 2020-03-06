@@ -1,7 +1,7 @@
 import Taro, {Component, Config} from '@tarojs/taro'
 import {View} from '@tarojs/components'
 import './index.scss'
-import Parser from "../../components/Parser/Parser";
+import TaroParser from "../../index";
 import markdown from "./markdown";
 
 export default class Index extends Component {
@@ -31,7 +31,7 @@ export default class Index extends Component {
     const content = markdown
     return (
       <View className='index'>
-        <Parser
+        <TaroParser
           type='markdown'
           theme='light'
           onImgClick={this.imgClick}

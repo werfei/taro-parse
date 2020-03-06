@@ -1,9 +1,10 @@
 import md from './parse/markdown'
 import parse from './parse'
+import config from './config'
 
 function initClass(val) {
   if (val.attr && val.attr.class) {
-    val.attr.class = val.attr.class.split(' ').join(' ~')
+    val.attr.class = val.attr.class.split(' ').join(' ' + config.classPrefix)
   }
   if (val.child) {
     for (let i = 0; i < val.child.length; i++) {

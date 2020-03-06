@@ -23,7 +23,7 @@ export default class Yuml extends Component<Props, State> {
     this.setState({
       attr: {
         src: `${apiPath}=${data.attr.value}&theme=${config.theme}`,
-        className: `~${data.attr.class} ~${data.attr.class}--${data.attr.type}`
+        className: `${config.classPrefix}${data.attr.class} ${config.classPrefix}${data.attr.class}--${data.attr.type}`
       }
     });
   }
@@ -55,10 +55,10 @@ export default class Yuml extends Component<Props, State> {
   render() {
     const {attr, size} = this.state
     return (
-      <View className='~h2w__yumlBox'>
-        <View style={{width: size.w + "em"}} className='~h2w__yumlView'>
+      <View className={config.classPrefix + 'h2w__yumlBox'}>
+        <View style={{width: size.w + "em"}} className={config.classPrefix + 'h2w__yumlView'}>
           <Image
-            className={'~' + attr.className}
+            className={config.classPrefix + attr.className}
             lazy-load='true'
             src={attr.src}
             onClick={() => {
