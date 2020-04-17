@@ -4,6 +4,7 @@ export default `## MyBatisCodeHelper-Pro
 - 支持spring 将mapper注入到spring中 intellij的spring注入不再报错 支持springboot
 ### 通过数据库生成增删改查代码示例
 ![databaseCrud.gif](https://blog.werfei.com/upload/2020/2/databaseCrud-1f5d874abc8e45c0ac750003f2e929ac.gif)
+![logo.jpg](https://blog.werfei.com/upload/2020/4/logo-73120fba234949c6ad8dafb3756ac702.jpg)
 [官方文档](https://gejun123456.github.io/MyBatisCodeHelper-Pro/)
 <video id="video" controls="" preload="none" src="http://img.blog.fandong.me/2017-08-26-Markdown-Advance-Video.mp4"
 poster="http://img.blog.fandong.me/2017-08-26-Markdown-Advance-Video.jpg">

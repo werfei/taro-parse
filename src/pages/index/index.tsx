@@ -14,8 +14,8 @@ export default class Index extends Component {
     addGlobalClass: true
   }
 
-  imgClick = (src) => {
-    Taro.previewImage({urls: [src]}).then(() => {
+  imgClick = (src, imgList) => {
+    Taro.previewImage({urls: imgList, current: src}).then(() => {
     })
   }
 
