@@ -18,5 +18,6 @@ export interface Data {
   tag: string,
   text?: string,
   child: (Data)[],
-  theme: string
+  theme: string,
+  index: number
 }

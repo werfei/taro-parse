@@ -1,160 +1,126 @@
 /*正文样式*/
 .h2w-light {
-  color:#333;
-  background-color:white;
+  color: #333;
+  background-color: white;
 }
 
 /**标题**/
 .h2w-light .h2w__h1,
 .h2w-light .h2w__h2 {
-    border-color:#eee;
+  border-color: #eee;
 }
 
 
 /**表格**/
 .h2w-light .h2w__thead .h2w__tr {
-    background-color:#f6f8fa;
+  background-color: #f6f8fa;
 }
-.h2w-light .h2w__table .h2w__tr:nth-child(2n){
-    background-color:#fbfcfd;
+
+.h2w-light .h2w__table .h2w__tr:nth-child(2n) {
+  background-color: #fbfcfd;
 }
+
 .h2w-light .h2w__th,
 .h2w-light .h2w__td {
-    border-color:#dfe2e5;
+  border-color: #dfe2e5;
 }
 
 
 /**代码块**/
 .h2w-light .h2w__pre {
-    background-color:#f6f8fa;
-    border-color:#eaedf0;
+  background-color: #f6f8fa;
+  border-color: #eaedf0;
 }
 
 .h2w-light .h2w__code {
-    background-color:#f6f8fa;
-    border-color:#eaedf0;
+  background-color: #f6f8fa;
+  border-color: #eaedf0;
 }
 
 
 /**块元素**/
 .h2w-light .h2w__blockquote {
-    border-left-color:#dfe2e5;
+  border-left-color: #dfe2e5;
 }
 
 /**内连元素**/
 .h2w-light .h2w__a {
-    color:#1aad16; border-color:#b9d9b8;
+  color: #1aad16;
+  border-color: #b9d9b8;
 }
 
 .h2w-light .h2w__hr {
-    background-color:#eee;
+  background-color: #eee;
 }
 
 .h2w-light .h2w__mark {
-    background:yellow;
-    color:black;
+  background: yellow;
+  color: black;
 }
 
 .h2w-light .h2w__lineNum {
-    color:#ccc;
+  color: #ccc;
 }
+
 /*
 
 github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 */
-
-.h2w-light .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  color: #333;
-  background: #f8f8f8;
+.h2w-light {
+  .hljs {
+    display:block;
+    overflow-x:auto;
+    padding:.5em;
+    background:white;
+    color:black
+  }
+  .hljs-comment,
+  .hljs-quote,
+  .hljs-variable {
+    color:#008000
+  }
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-built_in,
+  .hljs-name,
+  .hljs-tag {
+    color:#00f
+  }
+  .hljs-string,
+  .hljs-title,
+  .hljs-section,
+  .hljs-attribute,
+  .hljs-literal,
+  .hljs-template-tag,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-addition {
+    color:#a31515
+  }
+  .hljs-deletion,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-meta {
+    color:#2b91af
+  }
+  .hljs-doctag {
+    color:#808080
+  }
+  .hljs-attr {
+    color:#f00
+  }
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-link {
+    color:#00b0e8
+  }
+  .hljs-emphasis {
+    font-style:italic
+  }
+  .hljs-strong {
+    font-weight:bold
+  }
 }
 
-.h2w-light .hljs-comment,
-.h2w-light .hljs-quote {
-  color: #998;
-  font-style: italic;
-}
-
-.h2w-light .hljs-keyword,
-.h2w-light .hljs-selector-tag,
-.h2w-light .hljs-subst {
-  color: #333;
-  font-weight: bold;
-}
-
-.h2w-light .hljs-number,
-.h2w-light .hljs-literal,
-.h2w-light .hljs-variable,
-.h2w-light .hljs-template-variable,
-.h2w-light .hljs-tag .hljs-attr {
-  color: #008080;
-}
-
-.h2w-light .hljs-string,
-.h2w-light .hljs-doctag {
-  color: #d14;
-}
-
-.h2w-light .hljs-title,
-.h2w-light .hljs-section,
-.h2w-light .hljs-selector-id {
-  color: #900;
-  font-weight: bold;
-}
-
-.h2w-light .hljs-subst {
-  font-weight: normal;
-}
-
-.h2w-light .hljs-type,
-.h2w-light .hljs-class .hljs-title {
-  color: #458;
-  font-weight: bold;
-}
-
-.h2w-light .hljs-tag,
-.h2w-light .hljs-name,
-.h2w-light .hljs-attribute {
-  color: #000080;
-  font-weight: normal;
-}
-
-.h2w-light .hljs-regexp,
-.h2w-light .hljs-link {
-  color: #009926;
-}
-
-.h2w-light .hljs-symbol,
-.h2w-light .hljs-bullet {
-  color: #990073;
-}
-
-.h2w-light .hljs-built_in,
-.h2w-light .hljs-builtin-name {
-  color: #0086b3;
-}
-
-.h2w-light .hljs-meta {
-  color: #999;
-  font-weight: bold;
-}
-
-.h2w-light .hljs-deletion {
-  background: #fdd;
-}
-
-.h2w-light .hljs-addition {
-  background: #dfd;
-}
-
-.h2w-light .hljs-emphasis {
-  font-style: italic;
-}
-
-.h2w-light .hljs-strong {
-  font-weight: bold;
-}
 

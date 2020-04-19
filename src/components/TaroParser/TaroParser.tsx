@@ -49,7 +49,8 @@ export default class TaroParser extends Component<Props, State> {
       imgList.push(node.attr.src)
     }
     if (node.child) {
-      node.child.forEach(o => {
+      node.child.forEach((o,i) => {
+        o.index = i
         this.findAllImgUrl(o, imgList)
       })
     }

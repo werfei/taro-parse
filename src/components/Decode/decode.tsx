@@ -31,7 +31,7 @@ export default class DecodeB extends Component<Props, {}> {
   buildChildView() {
     const {nodes, latexApi, yumlApi} = this.props
     if (nodes && nodes.child) {
-      return nodes.child.map((item, index) => {
+      return nodes.child.map(item => {
         const tag = item.tag || 'undefined'
         const style = styleToObj(item.attr && item.attr.style ? item.attr.style : '')
         if (item.attr && item.attr.width) {
@@ -39,28 +39,28 @@ export default class DecodeB extends Component<Props, {}> {
         }
         let childView;
         if (tag === 'undefined') {
-          childView = <Block key={index}>{item.text}</Block>
+          childView = <Block key={item.index}>{item.text}</Block>
         } else if (tag === 'view') {
-          childView = <View key={index} className={config.classPrefix + item.attr.class} style={style}>
+          childView = <View key={item.index} className={config.classPrefix + item.attr.class} style={style}>
             {item.child &&
             <DecodeA latexApi={latexApi} yumlApi={yumlApi} onImgClick={this.imgClick} onLinkClick={this.linkClick}
               nodes={item}
             />}
           </View>
         } else if (tag === 'video') {
-          childView = (<Video key={index} src={item.attr.src} poster={item.attr.poster} style={style}>{item.child &&
+          childView = (<Video key={item.index} src={item.attr.src} poster={item.attr.poster} style={style}>{item.child &&
           <DecodeA latexApi={latexApi} yumlApi={yumlApi} onImgClick={this.imgClick} onLinkClick={this.linkClick}
             nodes={item}
           />}</Video>)
         } else if (tag === 'text') {
-          childView = <View key={index} className={config.classPrefix + item.attr.class} style={style}>
+          childView = <View key={item.index} className={config.classPrefix + item.attr.class} style={style}>
             {item.child ?
               <DecodeA latexApi={latexApi} yumlApi={yumlApi} onImgClick={this.imgClick} onLinkClick={this.linkClick}
                 nodes={item}
               /> : item.text}
           </View>
         } else if (tag === 'image') {
-          childView = <Image key={index}
+          childView = <Image key={item.index}
             className={config.classPrefix + item.attr.class}
             style={style}
             src={item.attr.src}
@@ -76,7 +76,7 @@ export default class DecodeB extends Component<Props, {}> {
             />}
           </Image>
         } else if (tag === 'navigator') {
-          childView = <Navigator key={index}
+          childView = <Navigator key={item.index}
             className={config.classPrefix + item.attr.class}
             style={style}
             url={item.attr.href}
@@ -88,7 +88,7 @@ export default class DecodeB extends Component<Props, {}> {
             nodes={item}
           />}</Navigator>
         } else if (tag === 'swiper') {
-          childView = <Swiper key={index}
+          childView = <Swiper key={item.index}
             className={config.classPrefix + item.attr.class}
             style={style}
           >{item.child &&
@@ -96,7 +96,7 @@ export default class DecodeB extends Component<Props, {}> {
             nodes={item}
           />}</Swiper>
         } else if (tag === 'swiper-item') {
-          childView = <SwiperItem key={index}
+          childView = <SwiperItem key={item.index}
             className={config.classPrefix + item.attr.class}
             style={style}
           >{item.child &&
@@ -104,28 +104,28 @@ export default class DecodeB extends Component<Props, {}> {
             nodes={item}
           />}</SwiperItem>
         } else if (tag === 'block') {
-          childView = <Block key={index}>{item.child &&
+          childView = <Block key={item.index}>{item.child &&
           <DecodeA latexApi={latexApi} yumlApi={yumlApi} onImgClick={this.imgClick} onLinkClick={this.linkClick}
             nodes={item}
           />}</Block>
         } else if (tag === 'button') {
           childView =
-            <Button key={index} className={config.classPrefix + item.attr.class} style={style}>{item.child &&
+            <Button key={item.index} className={config.classPrefix + item.attr.class} style={style}>{item.child &&
             <DecodeA latexApi={latexApi} yumlApi={yumlApi} onImgClick={this.imgClick} onLinkClick={this.linkClick}
               nodes={item}
             />}</Button>
         } else if (tag === 'audio-player') {
-          childView = <AudioPlayer key={index} data={item} />
+          childView = <AudioPlayer key={item.index} data={item} />
         } else if (tag === 'latex') {
-          childView = <Latex api={latexApi} onImgClick={this.imgClick} key={index} data={item} />
+          childView = <Latex api={latexApi} onImgClick={this.imgClick} key={item.index} data={item} />
         } else if (tag === 'table') {
-          childView = <Table key={index} data={item} />
+          childView = <Table key={item.index} data={item} />
         } else if (tag === 'yuml') {
-          childView = <Yuml api={yumlApi} onImgClick={this.imgClick} key={index} data={item} />
+          childView = <Yuml api={yumlApi} onImgClick={this.imgClick} key={item.index} data={item} />
         } else if (tag === 'img') {
-          childView = <Img onImgClick={this.imgClick} key={index} data={item} />
+          childView = <Img onImgClick={this.imgClick} key={item.index} data={item} />
         } else if (tag === 'todogroup') {
-          childView = <TodoGroup key={index} data={item} />
+          childView = <TodoGroup key={item.index} data={item} />
         }
         return childView
       })

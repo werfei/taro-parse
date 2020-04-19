@@ -12,14 +12,14 @@ export default class Table extends Component<BaseProps, {}> {
   }
 
   buildTr(trList) {
-    return trList.filter(o => o.tag).map((trs, trIndex) => {
+    return trList.filter(o => o.tag).map((trs) => {
       let child
       if (trs.child) {
         child = trs.child.filter(o => o.tag)
       } else {
         child = []
       }
-      const children = child.map((item, index) => {
+      const children = child.map(item => {
         let style
 
         if (item.attr && item.attr.style) {
@@ -29,12 +29,12 @@ export default class Table extends Component<BaseProps, {}> {
           }
         }
         return (
-          <View key={index} className={config.classPrefix + item.attr.class} style={style}>
+          <View key={item.index} className={config.classPrefix + item.attr.class} style={style}>
             {item.child && <Decode nodes={item} />}
           </View>
         )
       })
-      return (<View key={trIndex} className={config.classPrefix + trs.attr.class}>
+      return (<View key={trs.index} className={config.classPrefix + trs.attr.class}>
         {children}
       </View>)
     })
@@ -50,9 +50,9 @@ export default class Table extends Component<BaseProps, {}> {
         style.width = data.attr.width
       }
 
-      child = (data.child || []).filter(o => o.tag).map((item, index) => {
+      child = (data.child || []).filter(o => o.tag).map((item) => {
         const c = this.buildTr(item.child)
-        return (<View key={index} className={config.classPrefix + item.attr.class}>
+        return (<View key={item.index} className={config.classPrefix + item.attr.class}>
           {c}
         </View>)
       })
