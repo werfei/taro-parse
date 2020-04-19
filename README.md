@@ -54,9 +54,8 @@ export default class Index extends Component {
   }
 
   imgClick = (src, imgList) => {
-      if (this.props.onImgClick) {
-        this.props.onImgClick(src, imgList)
-      }
+     Taro.previewImage({urls: imgList, current: src}).then(() => {
+    })
   }
 
   linkClick = (href) => {
