@@ -40,7 +40,7 @@ import TaroParser from 'taro-parse'
 import Taro, {Component, Config} from '@tarojs/taro'
 import {View} from '@tarojs/components'
 import './index.scss'
-import '~taro-parse/dist/style/main'
+import '~taro-parse/dist/style/main.scss'
 import TaroParser from 'taro-parse'
 
 export default class Index extends Component {
