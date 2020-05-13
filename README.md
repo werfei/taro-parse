@@ -19,7 +19,7 @@
 ` yarn add taro-parse`
 #### 2、引入组件
 ``` 
-import '~taro-parse/dist/style/main'
+import '~taro-parse/dist/style/main.scss'
 import TaroParser from 'taro-parse'
 ```
 #### 3、组件参数
