@@ -5,6 +5,7 @@ export interface Props {
   type: 'markdown' | 'html',
   onImgClick?: Function
   onLinkClick?: Function,
+  onLoaded?: Function,
   latexApi?: string,
   yumlApi?: string,
   theme?: 'dark' | 'light'

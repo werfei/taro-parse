@@ -1,6 +1,6 @@
 {
 	"name": "taro-parse",
-	"version": "1.1.4",
+	"version": "1.1.5",
 	"private": false,
 	"description": "taro版本的富文本解析器",
 	"main": "dist/index.js",
@@ -33,6 +33,7 @@
 	"devDependencies": {
 		"@tarojs/components": "2.1.5",
 		"@tarojs/components-qa": "2.1.5",
+		"@tarojs/mini-runner": "2.1.5",
 		"@tarojs/router": "2.1.5",
 		"@tarojs/taro": "2.1.5",
 		"@tarojs/taro-alipay": "2.1.5",
@@ -42,10 +43,6 @@
 		"@tarojs/taro-swan": "2.1.5",
 		"@tarojs/taro-tt": "2.1.5",
 		"@tarojs/taro-weapp": "2.1.5",
-		"cross-env": "^7.0.0",
-		"nerv-devtools": "^1.5.6",
-		"nervjs": "^1.5.6",
-		"@tarojs/mini-runner": "2.1.5",
 		"@tarojs/webpack-runner": "2.1.5",
 		"@types/react": "^16.4.6",
 		"@types/webpack-env": "^1.13.6",
@@ -56,7 +53,9 @@
 		"babel-plugin-transform-decorators-legacy": "^1.3.4",
 		"babel-plugin-transform-jsx-stylesheet": "^0.6.5",
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-plugin-transform-runtime": "^6.23.0",
 		"babel-preset-env": "^1.6.1",
+		"cross-env": "^7.0.0",
 		"eslint": "^5.16.0",
 		"eslint-config-taro": "2.1.5",
 		"eslint-plugin-import": "^2.12.0",
@@ -64,8 +63,10 @@
 		"eslint-plugin-react-hooks": "^1.6.1",
 		"eslint-plugin-taro": "2.1.5",
 		"eslint-plugin-typescript": "^0.14.0",
-		"typescript-eslint-parser": "^22.0.0",
-		"typescript": "^3.0.1"
+		"nerv-devtools": "^1.5.6",
+		"nervjs": "^1.5.6",
+		"typescript": "^3.0.1",
+		"typescript-eslint-parser": "^22.0.0"
 	},
 	"keywords": [
 		"taro",
@@ -89,5 +90,8 @@
 		"url": "https://github.com/werfei/taro-parse/issues"
 	},
 	"author": "werfei <https://github.com/werfei>",
-	"homepage": "https://github.com/werfei/taro-parse#readme"
+	"homepage": "https://github.com/werfei/taro-parse#readme",
+	"dependencies": {
+		"babel-runtime": "^6.26.0"
+	}
 }

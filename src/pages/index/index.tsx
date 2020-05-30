@@ -28,6 +28,8 @@ export default class Index extends Component {
   }
 
   render() {
+    Taro.showLoading({title: '加载中...'}).then(() => {
+    })
     const content = markdown
     return (
       <View className='index'>
@@ -36,6 +38,9 @@ export default class Index extends Component {
           theme='light'
           onImgClick={this.imgClick}
           onLinkClick={this.linkClick}
+          onLoaded={() => {
+            Taro.hideLoading()
+          }}
           yumlApi='https://md.werfei.com/?yuml'
           latexApi='https://md.werfei.com/?tex'
           content={content}

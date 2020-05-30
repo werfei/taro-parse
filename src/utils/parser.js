@@ -19,7 +19,6 @@ export default function (str, type, option) {
   switch (type) {
     case 'markdown': {
       result = parse(md(str), option)
-      console.log(result)
       break
     }
     case 'html': {
@@ -31,6 +30,5 @@ export default function (str, type, option) {
     }
   }
   initClass(result)
-  console.log(result)
   return result
 }
