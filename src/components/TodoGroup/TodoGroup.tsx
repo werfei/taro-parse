@@ -1,5 +1,5 @@
 import {Checkbox, CheckboxGroup, Label} from "@tarojs/components"
-import {Component} from '@tarojs/taro'
+import { Component }  from 'react'
 import {BaseProps} from "types/BaseProps"
 import Decode from "../Decode/decode";
 import config from '../../utils/config'

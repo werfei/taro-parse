@@ -1,4 +1,4 @@
-import {Component} from '@tarojs/taro'
+import { Component }  from 'react'
 import {Image} from '@tarojs/components'
 import {Props, State} from 'types/Latex'
 import config from '../../utils/config'

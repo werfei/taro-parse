@@ -1,4 +1,4 @@
-import Taro, {Component} from '@tarojs/taro'
+import { Component }  from 'react'
 import {Block, Button, Image, Navigator, Swiper, SwiperItem, Video, View} from '@tarojs/components'
 import {Props} from 'types/Decode'
 import {styleToObj} from "../../utils/dom"

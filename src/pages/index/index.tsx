@@ -1,4 +1,5 @@
-import Taro, {Component, Config} from '@tarojs/taro'
+import Taro from "@tarojs/taro";
+import {Component} from 'react'
 import {View} from '@tarojs/components'
 import './index.scss'
 import TaroParser from "../../index";
@@ -6,12 +7,19 @@ import markdown from "./markdown";
 
 export default class Index extends Component {
 
-  config: Config = {
-    navigationBarTitleText: '首页'
+  componentWillMount() {
   }
 
-  options = {
-    addGlobalClass: true
+  componentDidMount() {
+  }
+
+  componentWillUnmount() {
+  }
+
+  componentDidShow() {
+  }
+
+  componentDidHide() {
   }
 
   imgClick = (src, imgList) => {

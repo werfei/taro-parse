@@ -1,4 +1,4 @@
-import {Component} from '@tarojs/taro'
+import { Component }  from 'react'
 import {View} from '@tarojs/components'
 import {BaseProps} from 'types/BaseProps'
 import {styleToObj} from "../../utils/dom"

@@ -1,4 +1,4 @@
-import Taro, {Component} from '@tarojs/taro'
+import {Component} from 'react'
 import {View} from '@tarojs/components'
 import {Props, State} from "types/Parser";
 import {Data} from "types/Data";
@@ -14,10 +14,13 @@ export default class TaroParser extends Component<Props, State> {
 
   constructor(props) {
     super(props);
-    this.convert(props).then(() => {
+    this.convert(props).then((nodes) => {
       if (this.props.onLoaded) {
         this.props.onLoaded()
       }
+      this.setState({
+        nodes: nodes as Data
+      })
     }).catch((e) => {
       console.log(e)
     })
@@ -25,10 +28,10 @@ export default class TaroParser extends Component<Props, State> {
 
   async convert(props) {
     const {content, type} = props
-    const nodes = convert(content || '', type || 'markdown') as unknown as Data
-    this.setState({
-      nodes: nodes
-    })
+    return new Promise(resolve => {
+      const nodes = convert(content || '', type || 'markdown') as unknown as Data
+      resolve(nodes)
+    });
   }
 
   imgClick = (src, imgList) => {
@@ -70,14 +73,14 @@ export default class TaroParser extends Component<Props, State> {
   render() {
     const {latexApi, yumlApi, theme} = this.props
     const imgList = []
-    if (this.state.nodes != null) {
+    if (this.state != null && this.state.nodes != null) {
       this.findAllImgUrl(this.state.nodes, imgList)
     }
     const className = `${config.classPrefix}h2w ${config.classPrefix}h2w-` + (theme ? theme : 'light')
     return (
       <View className={className}>
         <View className={config.classPrefix + 'h2w__main'}>
-          {this.state.nodes &&
+          {this.state != null && this.state.nodes &&
           <Decode latexApi={latexApi} yumlApi={yumlApi} onImgClick={(src) => {
             this.imgClick(src, imgList)
           }} onLinkClick={this.linkClick}

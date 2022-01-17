@@ -1,4 +1,4 @@
-import {Component} from '@tarojs/taro'
+import { Component }  from 'react'
 import {Image, View} from '@tarojs/components'
 import {BaseProps} from 'types/BaseProps'
 import Audio from "../../utils/Audio"

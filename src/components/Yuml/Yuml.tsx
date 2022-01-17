@@ -1,4 +1,4 @@
-import {Component} from '@tarojs/taro'
+import { Component }  from 'react'
 import {Image, View} from '@tarojs/components'
 import {Props, State} from 'types/Yuml'
 import config from '../../utils/config'
@@ -30,6 +30,7 @@ export default class Yuml extends Component<Props, State> {
 
   load = (e) => {
     // 公式图片加载完成则根据其图片大小、类型计算其显示的合适大小
+    debugger
     const scale = 20,
       w = e.detail.width / scale,
       h = e.detail.height / scale;
